@@ -1,30 +1,29 @@
 import React from 'react';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, View, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { LoginScreen } from './src/screens/LoginScreen'; 
+// Import màn hình sản phẩm mới của bạn
+import { ProductFormScreen } from './src/screens/ProductScreen'; 
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <StatusBar 
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'} 
+        backgroundColor="#F8FAFC"
+      />
+      <View style={styles.container}>
+        <ProductFormScreen />
+      </View>
     </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  return (
-    <View style={styles.container}>
-      <LoginScreen />
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F8FAFC', 
   },
 });
 
